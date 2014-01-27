@@ -11,12 +11,12 @@ using namespace System::Security::Permissions;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly:AssemblyTitleAttribute("Aruco.Net")];
-[assembly:AssemblyDescriptionAttribute("")];
+[assembly:AssemblyTitleAttribute("Aruco.NET")];
+[assembly:AssemblyDescriptionAttribute("A managed wrapper to the ArUco open-source augmented reality library.")];
 [assembly:AssemblyConfigurationAttribute("")];
-[assembly:AssemblyCompanyAttribute("")];
+[assembly:AssemblyCompanyAttribute("Gonçalo Lopes")];
 [assembly:AssemblyProductAttribute("Aruco.Net")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) Gonçalo C. Lopes 2012")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) Gonçalo Lopes 2012-2014")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -32,6 +32,7 @@ using namespace System::Security::Permissions;
 // by using the '*' as shown below:
 
 [assembly:AssemblyVersionAttribute("1.2.4.0")];
+[assembly:AssemblyInformationalVersionAttribute("1.2.4")];
 
 [assembly:ComVisible(false)];
 
