@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://bitbucket.org/horizongir/aruco.net/src/5c4cd576185970a4726e7bae7841b439eacbf43b/LICENSE</licenseUrl>
+    <projectUrl>http://bitbucket.org/horizongir/aruco.net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First public release of .NET interface for ArUco 1.2.4.</releaseNotes>
+    <copyright>Gonçalo Lopes © 2014</copyright>
+    <tags>ArUco Augmented Reality Wrapper</tags>
+  </metadata>
+  <files>
+    <file src="NuGet\build\**" target="build"/>
+    <file src="NuGet\NuGet-Overlay.cmd"/>
+  </files>
+</package>

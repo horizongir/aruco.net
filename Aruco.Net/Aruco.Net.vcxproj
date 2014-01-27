@@ -169,6 +169,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Aruco.Net.nuspec" />
     <None Include="packages.config" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
