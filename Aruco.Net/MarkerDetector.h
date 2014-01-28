@@ -80,7 +80,7 @@ namespace Aruco
 			}
 
 			void CopyThresholdedImage(IntPtr image);
-			IEnumerable<Marker ^> ^ Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters);
+			IList<Marker ^> ^ Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters);
 		};
 	}
 }

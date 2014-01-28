@@ -22,7 +22,7 @@ void Aruco::Net::MarkerDetector::CopyThresholdedImage(IntPtr image)
 	detector->getThresholdedImage().copyTo(cvimage);
 }
 
-IEnumerable<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters)
+IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters)
 {
 	cv::Mat cvinput = cv::Mat((IplImage*)input.ToPointer());
 	cv::Mat cvcamMatrix = cameraMatrix != IntPtr::Zero ? cv::Mat((CvMat*)cameraMatrix.ToPointer()) : cv::Mat();
