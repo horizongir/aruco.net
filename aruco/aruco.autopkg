@@ -1,0 +1,53 @@
+nuget {
+    nuspec {
+        id = aruco;
+        version: 1.2.4;
+        title: ArUco;
+        authors: {Rafael Muñoz Salinas};
+        owners: {Gonçalo Lopes};
+        licenseUrl: "http://opensource.org/licenses/bsd-license.php";
+        projectUrl: "http://www.uco.es/investiga/grupos/ava/node/26";
+        iconUrl: "http://www.uco.es/investiga/grupos/ava/node/26";
+        requireLicenseAcceptance: false;
+        summary: "ArUco is a minimal library for Augmented Reality applications based on OpenCV.";
+        description: @"ArUco is a minimal C++ library for detection of Augmented Reality markers based exclusively on OpenCV and provided under the BSD license. The library relies on the use of coded markers. Each marker has a unique code indicated by a pattern of black and white colors that allows for up to 1024 different markers.";
+        releaseNotes: "ArUco 1.2.4 in the x86 and x64 platform architectures.";
+        copyright: "© Copyright 2011, Rafael Muñoz Salinas";
+        tags: { ArUco, Augmented, Reality };
+    }
+    
+    dependencies {
+        packages: {
+            OpenCV/2.4.8
+        }
+    }
+    
+    files {
+        docs: { "..\README" };
+        include: { "..\src\*.h" };
+        
+        [x64,v110,debug] {
+            lib: { "bin\x64\Debug\aruco124.lib" };
+            bin: { "bin\x64\Debug\aruco124.dll" };
+        }
+        
+        [x64,v110,release] {
+            lib: { "bin\x64\Release\aruco124.lib" };
+            bin: { "bin\x64\Release\aruco124.dll" };
+        }
+        
+        [x86,v110,debug] {
+            lib: { "bin\x86\Debug\aruco124.lib" };
+            bin: { "bin\x86\Debug\aruco124.dll" };
+        }
+        
+        [x86,v110,release] {
+            lib: { "bin\x86\Release\aruco124.lib" };
+            bin: { "bin\x86\Release\aruco124.dll" };
+        }
+    }
+    
+    targets {
+        Defines += HAS_ARUCO;
+    }
+}
