@@ -17,12 +17,33 @@ namespace Aruco
 		public:
 			~Marker();
 
-			void Draw(IntPtr in, double c0, double c1, double c2, int lineWidth, bool writeId);
-			cli::array<double> ^ GetGLModelViewMatrix();
-
 			property int Id {
 				int get() { return marker->id; }
 			}
+
+			property float Size {
+				float get() { return marker->ssize; }
+			}
+
+			property bool IsValid {
+				bool get() { return marker->isValid(); }
+			}
+
+			property OpenCV::Net::Point2f Center {
+				OpenCV::Net::Point2f get() { return *((OpenCV::Net::Point2f*)&marker->getCenter()); }
+			}
+
+			property float Perimeter {
+				float get() { return marker->getPerimeter(); }
+			}
+
+			property float Area {
+				float get() { return marker->getArea(); }
+			}
+
+			void Draw(OpenCV::Net::Arr ^in, OpenCV::Net::Scalar color, int lineWidth, bool writeId);
+
+			cli::array<double> ^ GetGLModelViewMatrix();
 		};
 	}
 }

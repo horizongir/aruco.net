@@ -8,10 +8,10 @@ parameters(new aruco::CameraParameters())
 {
 }
 
-void Aruco::Net::CameraParameters::CopyParameters(IntPtr cameraMatrix, IntPtr distortion)
+void Aruco::Net::CameraParameters::CopyParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion)
 {
-	cv::Mat cameraMat = cv::Mat((CvMat*)cameraMatrix.ToPointer());
-	cv::Mat distortionMat = cv::Mat((CvMat*)distortion.ToPointer());
+	cv::Mat cameraMat = cv::cvarrToMat(cameraMatrix->DangerousGetHandle().ToPointer());
+	cv::Mat distortionMat = cv::cvarrToMat(distortion->DangerousGetHandle().ToPointer());
 	(parameters->CameraMatrix).copyTo(cameraMat);
 	(parameters->Distorsion).copyTo(distortionMat);
 }

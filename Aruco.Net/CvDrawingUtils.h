@@ -15,8 +15,8 @@ namespace Aruco
 		private:
 			CvDrawingUtils();
 		public:
-			static void Draw3dAxis(IntPtr image, Marker ^marker, CameraParameters ^parameters);
-			static void Draw3dCube(IntPtr image, Marker ^marker, CameraParameters ^parameters);
+			static void Draw3dAxis(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
+			static void Draw3dCube(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
 		};
 	}
 }

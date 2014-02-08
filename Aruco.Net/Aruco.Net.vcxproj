@@ -173,6 +173,11 @@
     <None Include="packages.config" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Externals\OpenCV.Net\OpenCV.Net\OpenCV.Net.csproj">
+      <Project>{daf4d704-2c86-4657-9210-db5b847ba8be}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\OpenCV.2.4.8\build\native\OpenCV.targets" Condition="Exists('..\packages\OpenCV.2.4.8\build\native\OpenCV.targets')" />
