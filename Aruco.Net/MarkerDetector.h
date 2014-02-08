@@ -79,8 +79,8 @@ namespace Aruco
 				void set(int value) { detector->setDesiredSpeed(value); }
 			}
 
-			void CopyThresholdedImage(IntPtr image);
-			IList<Marker ^> ^ Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters);
+			void CopyThresholdedImage(OpenCV::Net::Arr ^image);
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters);
 		};
 	}
 }

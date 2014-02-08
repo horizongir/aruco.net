@@ -12,10 +12,11 @@ Aruco::Net::Marker::~Marker()
 	delete marker;
 }
 
-void Aruco::Net::Marker::Draw(IntPtr in, double c0, double c1, double c2, int lineWidth, bool writeId)
+void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^in, OpenCV::Net::Scalar color, int lineWidth, bool writeId)
 {
-	cv::Mat cvinput = cv::Mat((IplImage*)in.ToPointer());
-	marker->draw(cvinput,cv::Scalar(c0,c1,c2),lineWidth,writeId);
+	IntPtr handle = in->DangerousGetHandle();
+	cv::Mat cvinput = cv::cvarrToMat(handle.ToPointer());
+	marker->draw(cvinput,*((cv::Scalar*)&color),lineWidth,writeId);
 }
 
 cli::array<double> ^ Aruco::Net::Marker::GetGLModelViewMatrix()

@@ -14,8 +14,4 @@
     <copyright>Gonçalo Lopes © 2014</copyright>
     <tags>ArUco Augmented Reality Wrapper</tags>
   </metadata>
-  <files>
-    <file src="NuGet\build\**" target="build"/>
-    <file src="NuGet\NuGet-Overlay.cmd"/>
-  </files>
 </package>

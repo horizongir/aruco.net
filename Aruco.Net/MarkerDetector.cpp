@@ -16,17 +16,19 @@ Aruco::Net::MarkerDetector::~MarkerDetector()
 	delete detector;
 }
 
-void Aruco::Net::MarkerDetector::CopyThresholdedImage(IntPtr image)
+void Aruco::Net::MarkerDetector::CopyThresholdedImage(OpenCV::Net::Arr ^image)
 {
-	cv::Mat cvimage = cv::Mat((IplImage*)image.ToPointer());
+	IntPtr handle = image->DangerousGetHandle();
+	cv::Mat cvimage = cv::cvarrToMat(handle.ToPointer());
 	detector->getThresholdedImage().copyTo(cvimage);
 }
 
-IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(IntPtr input, IntPtr cameraMatrix, IntPtr distortion, float markerSizeMeters)
+IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters)
 {
-	cv::Mat cvinput = cv::Mat((IplImage*)input.ToPointer());
-	cv::Mat cvcamMatrix = cameraMatrix != IntPtr::Zero ? cv::Mat((CvMat*)cameraMatrix.ToPointer()) : cv::Mat();
-	cv::Mat cvdistortion = distortion != IntPtr::Zero ? cv::Mat((CvMat*)distortion.ToPointer()) : cv::Mat();
+	IntPtr handle = input->DangerousGetHandle();
+	cv::Mat cvinput = cv::cvarrToMat(handle.ToPointer());
+	cv::Mat cvcamMatrix = cameraMatrix != nullptr ? cv::cvarrToMat(cameraMatrix->DangerousGetHandle().ToPointer()) : cv::Mat();
+	cv::Mat cvdistortion = distortion != nullptr ? cv::cvarrToMat(distortion->DangerousGetHandle().ToPointer()) : cv::Mat();
 
 	std::vector<aruco::Marker> markers;
 	detector->detect(cvinput,markers,cvcamMatrix,cvdistortion,markerSizeMeters);
