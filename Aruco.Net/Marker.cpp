@@ -12,9 +12,19 @@ Aruco::Net::Marker::~Marker()
 	delete marker;
 }
 
-void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^in, OpenCV::Net::Scalar color, int lineWidth, bool writeId)
+void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color)
 {
-	IntPtr handle = in->DangerousGetHandle();
+	Draw(image, color, 1, true);
+}
+
+void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color, int lineWidth)
+{
+	Draw(image, color, lineWidth, true);
+}
+
+void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color, int lineWidth, bool writeId)
+{
+	IntPtr handle = image->DangerousGetHandle();
 	cv::Mat cvinput = cv::cvarrToMat(handle.ToPointer());
 	marker->draw(cvinput,*((cv::Scalar*)&color),lineWidth,writeId);
 }

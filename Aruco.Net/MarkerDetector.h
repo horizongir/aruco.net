@@ -111,7 +111,9 @@ namespace Aruco
 			}
 
 			void CopyThresholdedImage(OpenCV::Net::Arr ^image);
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion);
 			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters);
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters, bool setYPerpendicular);
 		};
 	}
 }

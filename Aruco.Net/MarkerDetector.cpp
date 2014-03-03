@@ -23,7 +23,17 @@ void Aruco::Net::MarkerDetector::CopyThresholdedImage(OpenCV::Net::Arr ^image)
 	detector->getThresholdedImage().copyTo(cvimage);
 }
 
+IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion)
+{
+	return Detect(input, cameraMatrix, distortion, -1, true);
+}
+
 IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters)
+{
+	return Detect(input, cameraMatrix, distortion, markerSizeMeters, true);
+}
+
+IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters, bool setYPerpendicular)
 {
 	IntPtr handle = input->DangerousGetHandle();
 	cv::Mat cvinput = cv::cvarrToMat(handle.ToPointer());
@@ -31,7 +41,7 @@ IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, Op
 	cv::Mat cvdistortion = distortion != nullptr ? cv::cvarrToMat(distortion->DangerousGetHandle().ToPointer()) : cv::Mat();
 
 	std::vector<aruco::Marker> markers;
-	detector->detect(cvinput,markers,cvcamMatrix,cvdistortion,markerSizeMeters);
+	detector->detect(cvinput, markers, cvcamMatrix, cvdistortion, markerSizeMeters, setYPerpendicular);
 
 	List<Marker ^> ^detectedMarkers = gcnew List<Marker ^>(markers.size());
 	std::vector<aruco::Marker>::const_iterator it;
