@@ -23,7 +23,8 @@ namespace Aruco
 		{
 			None = aruco::MarkerDetector::NONE,
 			Harris = aruco::MarkerDetector::HARRIS,
-			SubPix = aruco::MarkerDetector::SUBPIX
+			SubPix = aruco::MarkerDetector::SUBPIX,
+			Lines = aruco::MarkerDetector::LINES
 		};
 
 		public ref class MarkerDetector
@@ -66,6 +67,36 @@ namespace Aruco
 					double p1, p2;
 					detector->getThresholdParams(p1,p2);
 					detector->setThresholdParams(p1,value);
+				}
+			}
+
+			property float MinSize {
+				float get()
+				{
+					float minSize, maxSize;
+					detector->getMinMaxSize(minSize,maxSize);
+					return minSize;
+				}
+				void set(float value)
+				{
+					float minSize, maxSize;
+					detector->getMinMaxSize(minSize,maxSize);
+					detector->setMinMaxSize(value,maxSize);
+				}
+			}
+
+			property float MaxSize {
+				float get()
+				{
+					float minSize, maxSize;
+					detector->getMinMaxSize(minSize,maxSize);
+					return maxSize;
+				}
+				void set(float value)
+				{
+					float minSize, maxSize;
+					detector->getMinMaxSize(minSize,maxSize);
+					detector->setMinMaxSize(minSize,value);
 				}
 			}
 
