@@ -15,7 +15,9 @@ namespace Aruco
 		public:
 			CameraParameters();
 
-			void CopyParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion);
+			void GetParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, [System::Runtime::InteropServices::Out]OpenCV::Net::Size %size);
+			void SetParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size size);
+
 			void ReadFromFile(String ^fileName);
 			void SaveToFile(String ^fileName);
 			void SaveToFile(String ^fileName, bool inXml);
