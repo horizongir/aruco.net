@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>http://bitbucket.org/horizongir/aruco.net/src/5c4cd576185970a4726e7bae7841b439eacbf43b/LICENSE</licenseUrl>
+    <licenseUrl>http://bitbucket.org/horizongir/aruco.net/raw/5f878b367b843f309488e857cd4ae7d047f68547/LICENSE</licenseUrl>
     <projectUrl>http://bitbucket.org/horizongir/aruco.net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
