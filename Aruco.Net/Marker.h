@@ -41,8 +41,9 @@ namespace Aruco
 				float get() { return marker->getArea(); }
 			}
 
-			void Draw(OpenCV::Net::Arr ^in, OpenCV::Net::Scalar color, int lineWidth, bool writeId);
-
+			void Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color);
+			void Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color, int lineWidth);
+			void Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color, int lineWidth, bool writeId);
 			cli::array<double> ^ GetGLModelViewMatrix();
 		};
 	}
