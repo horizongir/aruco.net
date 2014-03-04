@@ -173,7 +173,6 @@
   <ItemGroup>
     <None Include="Aruco.Net.nuspec" />
     <None Include="packages.config" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Externals\OpenCV.Net\OpenCV.Net\OpenCV.Net.csproj">
