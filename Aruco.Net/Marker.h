@@ -3,6 +3,7 @@
 #include <marker.h>
 
 using namespace System;
+using namespace System::Collections::Generic;
 
 namespace Aruco
 {
@@ -11,14 +12,48 @@ namespace Aruco
 		/// <summary>
 		/// Represents a fiducial marker, defined by a vector of its four corners.
 		/// </summary>
-		public ref class Marker
+		public ref class Marker : public IReadOnlyList<OpenCV::Net::Point2f>
 		{
 		internal:
 			aruco::Marker *marker;
+
 		internal:
 			Marker(const aruco::Marker &marker);
+			virtual System::Collections::IEnumerator ^ GetEnumeratorNonGeneric() = System::Collections::IEnumerable::GetEnumerator
+			{
+				return GetEnumerator();
+			}
+
 		public:
+			/// <summary>
+			/// Releases unmanaged resources associated with the marker.
+			/// </summary>
 			~Marker();
+
+			/// <summary>
+			/// Gets the corner at the specified index.
+			/// </summary>
+			property OpenCV::Net::Point2f default[int] {
+				virtual OpenCV::Net::Point2f get(int index) { return *((OpenCV::Net::Point2f*)&marker->at(index)); }
+			}
+
+			/// <summary>
+			/// Gets the number of corners contained in the marker.
+			/// </summary>
+			property int Count {
+				virtual int get() { return marker->size(); }
+			}
+
+			/// <summary>
+			/// Returns an enumerator that iterates through the marker corners.
+			/// </summary>
+			/// <returns>
+			/// An enumerator instance that can be used to iterate through the marker corners.
+			/// </returns>
+			virtual IEnumerator<OpenCV::Net::Point2f> ^ GetEnumerator()
+			{
+				return gcnew CornerEnumerator(marker);
+			}
 
 			/// <summary>
 			/// Gets the id of the marker.
@@ -94,6 +129,36 @@ namespace Aruco
 			/// The modelview matrix for the marker given the extrinsic camera parameters.
 			/// </returns>
 			cli::array<double> ^ GetGLModelViewMatrix();
+
+		private:
+			ref class CornerEnumerator : public IEnumerator<OpenCV::Net::Point2f>
+			{
+				internal:
+					int index;
+					aruco::Marker *marker;
+					CornerEnumerator(aruco::Marker *marker):
+						marker(marker),
+					    index(-1)
+					{
+					}
+
+					property Object ^ CurrentNonGeneric {
+						virtual Object ^ get() = System::Collections::IEnumerator::Current::get { return Current; }
+					}
+
+				public:
+					~CornerEnumerator() { }
+					virtual void Reset() { index = -1; }
+
+					property OpenCV::Net::Point2f Current {
+						virtual OpenCV::Net::Point2f get() { return *((OpenCV::Net::Point2f*)&marker->at(index)); }
+					}
+
+					virtual bool MoveNext()
+					{
+						return ++index < marker->size();
+					}
+			};
 		};
 	}
 }
