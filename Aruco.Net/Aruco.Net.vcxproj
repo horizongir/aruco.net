@@ -152,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraParameters.h" />
-    <ClInclude Include="CvDrawingUtils.h" />
+    <ClInclude Include="DrawingUtils.h" />
     <ClInclude Include="Marker.h" />
     <ClInclude Include="MarkerDetector.h" />
     <ClInclude Include="Stdafx.h" />
@@ -160,7 +160,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CameraParameters.cpp" />
-    <ClCompile Include="CvDrawingUtils.cpp" />
+    <ClCompile Include="DrawingUtils.cpp" />
     <ClCompile Include="Marker.cpp" />
     <ClCompile Include="MarkerDetector.cpp" />
     <ClCompile Include="Stdafx.cpp">

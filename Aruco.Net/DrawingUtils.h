@@ -10,10 +10,10 @@ namespace Aruco
 {
 	namespace Net
 	{
-		public ref class CvDrawingUtils
+		public ref class DrawingUtils
 		{
 		private:
-			CvDrawingUtils();
+			DrawingUtils();
 		public:
 			static void Draw3dAxis(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
 			static void Draw3dCube(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
