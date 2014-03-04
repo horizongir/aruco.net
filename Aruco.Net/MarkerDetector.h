@@ -5,6 +5,7 @@
 #include <markerdetector.h>
 
 #include "Marker.h"
+#include "CameraParameters.h"
 using namespace System;
 using namespace System::Collections::Generic;
 
@@ -80,9 +81,9 @@ namespace Aruco
 			/// <summary>
 			/// Gets or sets the threshold method.
 			/// </summary>
-			property ThresholdMethod ThresholdType {
-				ThresholdMethod get() { return (ThresholdMethod)detector->getThresholdMethod(); }
-				void set(ThresholdMethod value) { detector->setThresholdMethod((aruco::MarkerDetector::ThresholdMethods)value); }
+			property Aruco::Net::ThresholdMethod ThresholdMethod {
+				Aruco::Net::ThresholdMethod get() { return (Aruco::Net::ThresholdMethod)detector->getThresholdMethod(); }
+				void set(Aruco::Net::ThresholdMethod value) { detector->setThresholdMethod((aruco::MarkerDetector::ThresholdMethods)value); }
 			}
 
 			/// <summary>
@@ -181,6 +182,42 @@ namespace Aruco
 			/// </summary>
 			/// <param name="image">The destination image for the thresholding result.</param>
 			void CopyThresholdedImage(OpenCV::Net::Arr ^image);
+
+			/// <summary>
+			/// Detects fiducial markers in the specified image.
+			/// </summary>
+			/// <param name="input">The source image on which to look for markers.</param>
+			/// <param name="parameters">The intrinsic camera parameters.</param>
+			/// <returns>
+			/// A list of detected fiducial markers in the specified image.
+			/// </returns>
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, CameraParameters ^parameters);
+
+			/// <summary>
+			/// Detects fiducial markers in the specified image.
+			/// </summary>
+			/// <param name="input">The source image on which to look for markers.</param>
+			/// <param name="parameters">The intrinsic camera parameters.</param>
+			/// <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+			/// <returns>
+			/// A list of detected fiducial markers in the specified image.
+			/// </returns>
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, CameraParameters ^parameters, float markerSizeMeters);
+
+			/// <summary>
+			/// Detects fiducial markers in the specified image.
+			/// </summary>
+			/// <param name="input">The source image on which to look for markers.</param>
+			/// <param name="parameters">The intrinsic camera parameters.</param>
+			/// <param name="markerSizeMeters">The size of the marker sides, in meters.</param>
+			/// <param name="setYPerpendicular">
+			/// A value indicating which axis represents the surface normal. If true, the Y axis
+			/// will be set perpendicular to the surface; otherwise, the Z axis will be used.
+			/// </param>
+			/// <returns>
+			/// A list of detected fiducial markers in the specified image.
+			/// </returns>
+			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, CameraParameters ^parameters, float markerSizeMeters, bool setYPerpendicular);
 
 			/// <summary>
 			/// Detects fiducial markers in the specified image.
