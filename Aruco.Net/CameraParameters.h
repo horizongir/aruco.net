@@ -27,7 +27,7 @@ namespace Aruco
 			/// <param name="cameraMatrix">The 3x3 camera matrix.</param>
 			/// <param name="distortion">The 4x1 lens distortion matrix.</param>
 			/// <param name="size">The resolution of the camera.</param>
-			void CopyParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, [System::Runtime::InteropServices::Out]OpenCV::Net::Size %size);
+			void CopyParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, [System::Runtime::InteropServices::Out]OpenCV::Net::Size %size);
 
 			/// <summary>
 			/// Sets the camera parameters.
@@ -35,7 +35,7 @@ namespace Aruco
 			/// <param name="cameraMatrix">The 3x3 camera matrix.</param>
 			/// <param name="distortion">The 4x1 lens distortion matrix.</param>
 			/// <param name="size">The resolution of the camera.</param>
-			void SetParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size size);
+			void SetParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size size);
 
 			/// <summary>
 			/// Reads the camera parameters from a file saved with <see cref="SaveToFile"/>.

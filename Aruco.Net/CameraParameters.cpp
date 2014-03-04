@@ -8,7 +8,7 @@ parameters(new aruco::CameraParameters())
 {
 }
 
-void Aruco::Net::CameraParameters::CopyParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size %size)
+void Aruco::Net::CameraParameters::CopyParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size %size)
 {
 	cv::Mat cameraMat = cv::cvarrToMat(cameraMatrix->DangerousGetHandle().ToPointer());
 	cv::Mat distortionMat = cv::cvarrToMat(distortion->DangerousGetHandle().ToPointer());
@@ -17,7 +17,7 @@ void Aruco::Net::CameraParameters::CopyParams(OpenCV::Net::Mat ^cameraMatrix, Op
 	size = *((OpenCV::Net::Size*)&parameters->CamSize);
 }
 
-void Aruco::Net::CameraParameters::SetParams(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size size)
+void Aruco::Net::CameraParameters::SetParameters(OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, OpenCV::Net::Size size)
 {
 	cv::Mat cameraMat = cv::cvarrToMat(cameraMatrix->DangerousGetHandle().ToPointer());
 	cv::Mat distortionMat = cv::cvarrToMat(distortion->DangerousGetHandle().ToPointer());
