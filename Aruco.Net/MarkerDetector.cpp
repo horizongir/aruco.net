@@ -7,7 +7,8 @@
 using namespace Aruco::Net;
 
 Aruco::Net::MarkerDetector::MarkerDetector():
-detector(new aruco::MarkerDetector())
+detector(new aruco::MarkerDetector()),
+erosionEnabled(true)
 {
 }
 
@@ -79,4 +80,13 @@ IList<Marker ^> ^ Aruco::Net::MarkerDetector::Detect(OpenCV::Net::Arr ^input, Op
 	}
 
 	return detectedMarkers;
+}
+
+void Aruco::Net::MarkerDetector::Threshold(Aruco::Net::ThresholdMethod method, OpenCV::Net::Arr ^grayscale, OpenCV::Net::Arr ^threshold, double param1, double param2)
+{
+	IntPtr hGrayscale = grayscale->DangerousGetHandle();
+	IntPtr hThreshold = threshold->DangerousGetHandle();
+	cv::Mat cvgraymat = cv::cvarrToMat(hGrayscale.ToPointer());
+	cv::Mat cvthresholdmat = cv::cvarrToMat(hThreshold.ToPointer());
+	detector->thresHold((int)method, cvgraymat, cvthresholdmat, param1, param2);
 }
