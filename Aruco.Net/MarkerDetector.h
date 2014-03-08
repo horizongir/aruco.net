@@ -67,6 +67,7 @@ namespace Aruco
 		{
 		private:
 			aruco::MarkerDetector *detector;
+			bool erosionEnabled;
 		public:
 			/// <summary>
 			/// Initializes a new instance of the <see cref="MarkerDetector"/> class.
@@ -167,6 +168,19 @@ namespace Aruco
 			}
 
 			/// <summary>
+			/// Gets or sets a value indicating whether the erosion process will be applied.
+			/// This property must be set to <b>true</b> for chessboard like boards.
+			/// </summary>
+			property bool ErosionEnabled {
+				bool get() { return erosionEnabled; }
+				void set(bool value)
+				{
+					detector->enableErosion(value);
+					erosionEnabled = value;
+				}
+			}
+
+			/// <summary>
 			/// Gets or sets the desired speed of internal processes. If you need maximum speed at
 			/// the cost of a lower detection rate set it to 3, otherwise use 0 for a precise but
 			/// slow detection.
@@ -257,6 +271,17 @@ namespace Aruco
 			/// A list of detected fiducial markers in the specified image.
 			/// </returns>
 			IList<Marker ^> ^ Detect(OpenCV::Net::Arr ^input, OpenCV::Net::Mat ^cameraMatrix, OpenCV::Net::Mat ^distortion, float markerSizeMeters, bool setYPerpendicular);
+
+
+			/// <summary>
+			/// Thresholds the grayscale image with the specified method.
+			/// </summary>
+			/// <param name="method">The threshold method to use.</param>
+			/// <param name="grayscale">The source grayscale image.</param>
+			/// <param name="threshold">The destination thresholded binary image.</param>
+			/// <param name="param1">The first parameter of the threshold method.</param>
+			/// <param name="param2">The second parameter of the threshold method.</param>
+			void Threshold(Aruco::Net::ThresholdMethod method, OpenCV::Net::Arr ^grayscale, OpenCV::Net::Arr ^threshold, double param1, double param2);
 		};
 	}
 }
