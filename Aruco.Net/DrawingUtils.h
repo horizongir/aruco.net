@@ -3,6 +3,7 @@
 #include <cvdrawingutils.h>
 
 #include "Marker.h"
+#include "Board.h"
 #include "CameraParameters.h"
 using namespace System;
 
@@ -27,12 +28,28 @@ namespace Aruco
 			static void Draw3dAxis(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
 
 			/// <summary>
+			/// Draws a 3D reference axis on top of the input image.
+			/// </summary>
+			/// <param name="image">The image on which to draw the axis.</param>
+			/// <param name="board">The marker board used to compute the axis position and orientation.</param>
+			/// <param name="parameters">The camera intrinsic parameters.</param>
+			static void Draw3dAxis(OpenCV::Net::Arr ^image, Board ^marker, CameraParameters ^parameters);
+
+			/// <summary>
 			/// Draws a 3D reference cube on top of the input image.
 			/// </summary>
 			/// <param name="image">The image on which to draw the cube.</param>
 			/// <param name="marker">The marker used to compute the cube position and orientation.</param>
 			/// <param name="parameters">The camera intrinsic parameters.</param>
 			static void Draw3dCube(OpenCV::Net::Arr ^image, Marker ^marker, CameraParameters ^parameters);
+
+			/// <summary>
+			/// Draws a 3D reference cube on top of the input image.
+			/// </summary>
+			/// <param name="image">The image on which to draw the cube.</param>
+			/// <param name="board">The marker board used to compute the cube position and orientation.</param>
+			/// <param name="parameters">The camera intrinsic parameters.</param>
+			static void Draw3dCube(OpenCV::Net::Arr ^image, Board ^board, CameraParameters ^parameters);
 		};
 	}
 }

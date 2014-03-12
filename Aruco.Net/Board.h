@@ -16,10 +16,10 @@ namespace Aruco
 		public ref class Board
 		{
 		private:
-			aruco::Board *board;
 			List<Marker ^> ^markers;
 			float likelihood;
 		internal:
+			aruco::Board *board;
 			Board(const aruco::Board &board, float likelihood);
 
 		public:
