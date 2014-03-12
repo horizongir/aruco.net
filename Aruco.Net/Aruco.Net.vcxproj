@@ -151,18 +151,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardConfiguration.h" />
+    <ClInclude Include="BoardDetector.h" />
     <ClInclude Include="CameraParameters.h" />
     <ClInclude Include="DrawingUtils.h" />
     <ClInclude Include="Marker.h" />
     <ClInclude Include="MarkerDetector.h" />
+    <ClInclude Include="MarkerInfo.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardConfiguration.cpp" />
+    <ClCompile Include="BoardDetector.cpp" />
     <ClCompile Include="CameraParameters.cpp" />
     <ClCompile Include="DrawingUtils.cpp" />
     <ClCompile Include="Marker.cpp" />
     <ClCompile Include="MarkerDetector.cpp" />
+    <ClCompile Include="MarkerInfo.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -133,31 +133,33 @@ namespace Aruco
 		private:
 			ref class CornerEnumerator : public IEnumerator<OpenCV::Net::Point2f>
 			{
-				internal:
-					int index;
-					aruco::Marker *marker;
-					CornerEnumerator(aruco::Marker *marker):
-						marker(marker),
-					    index(-1)
-					{
-					}
+			private:
+				int index;
+				aruco::Marker *marker;
 
-					property Object ^ CurrentNonGeneric {
-						virtual Object ^ get() = System::Collections::IEnumerator::Current::get { return Current; }
-					}
+			internal:
+				CornerEnumerator(aruco::Marker *marker):
+					marker(marker),
+					index(-1)
+				{
+				}
 
-				public:
-					~CornerEnumerator() { }
-					virtual void Reset() { index = -1; }
+				property Object ^ CurrentNonGeneric {
+					virtual Object ^ get() = System::Collections::IEnumerator::Current::get { return Current; }
+				}
 
-					property OpenCV::Net::Point2f Current {
-						virtual OpenCV::Net::Point2f get() { return *((OpenCV::Net::Point2f*)&marker->at(index)); }
-					}
+			public:
+				~CornerEnumerator() { }
+				virtual void Reset() { index = -1; }
 
-					virtual bool MoveNext()
-					{
-						return ++index < marker->size();
-					}
+				property OpenCV::Net::Point2f Current {
+					virtual OpenCV::Net::Point2f get() { return *((OpenCV::Net::Point2f*)&marker->at(index)); }
+				}
+
+				virtual bool MoveNext()
+				{
+					return ++index < marker->size();
+				}
 			};
 		};
 	}
