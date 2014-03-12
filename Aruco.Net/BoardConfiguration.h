@@ -55,6 +55,18 @@ namespace Aruco
 			property IList<MarkerInfo ^> ^ Markers {
 				IList<MarkerInfo ^> ^ get() { return markers; }
 			}
+
+			/// <summary>
+			/// Saves the marker board configuration to a file.
+			/// </summary>
+			/// <param name="fileName">The file on which to save the board configuration.</param>
+			void SaveToFile(String ^fileName);
+
+			/// <summary>
+			/// Reads the marker board configuration from a file saved with <see cref="SaveToFile"/>.
+			/// </summary>
+			/// <param name="fileName">The file containing the board configuration.</param>
+			void ReadFromFile(String ^fileName);
 		};
 	}
 }
