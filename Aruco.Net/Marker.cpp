@@ -41,7 +41,10 @@ void Aruco::Net::Marker::Draw(OpenCV::Net::Arr ^image, OpenCV::Net::Scalar color
 cli::array<double> ^ Aruco::Net::Marker::GetGLModelViewMatrix()
 {
 	cli::array<double> ^result = gcnew cli::array<double>(16);
-	cli::pin_ptr<double> modelView = &result[0];
-	marker->glGetModelViewMatrix(modelView);
+	if (marker->isValid())
+	{
+		cli::pin_ptr<double> modelView = &result[0];
+		marker->glGetModelViewMatrix(modelView);
+	}
 	return result;
 }
