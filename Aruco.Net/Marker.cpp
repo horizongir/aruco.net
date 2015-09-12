@@ -1,6 +1,15 @@
 #include "StdAfx.h"
 #include "Marker.h"
 
+static Aruco::Net::Marker::Marker()
+{
+	Aruco::Net::Marker::Empty = gcnew Aruco::Net::Marker(new aruco::Marker());
+}
+
+Aruco::Net::Marker::Marker(aruco::Marker *marker):
+marker(marker)
+{
+}
 
 Aruco::Net::Marker::Marker(const aruco::Marker &marker):
 marker(new aruco::Marker(marker))

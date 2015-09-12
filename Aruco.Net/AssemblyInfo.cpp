@@ -16,7 +16,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("Gonçalo Lopes")];
 [assembly:AssemblyProductAttribute("Aruco.Net")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) Gonçalo Lopes 2012-2014")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) Gonçalo Lopes 2012-2015")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -31,8 +31,8 @@ using namespace System::Security::Permissions;
 // You can specify all the value or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly:AssemblyVersionAttribute("1.2.4.0")];
-[assembly:AssemblyInformationalVersionAttribute("1.2.4")];
+[assembly:AssemblyVersionAttribute("2.0.0.0")];
+[assembly:AssemblyInformationalVersionAttribute("2.0.0")];
 
 [assembly:ComVisible(false)];
 
