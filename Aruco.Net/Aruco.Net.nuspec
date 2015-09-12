@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Aruco.Net</id>
-    <version>1.2.4</version>
+    <version>2.0.0</version>
     <title>ArUco.NET</title>
     <authors>Gonçalo Lopes</authors>
     <owners>Gonçalo Lopes</owners>
@@ -10,18 +10,17 @@
     <projectUrl>http://bitbucket.org/horizongir/aruco.net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A managed wrapper to the ArUco open-source augmented reality library.</description>
-    <releaseNotes>First public release of .NET interface for ArUco 1.2.4.</releaseNotes>
     <copyright>Gonçalo Lopes © 2014</copyright>
     <tags>ArUco Augmented Reality Wrapper</tags>
     <dependencies>
-      <dependency id="OpenCV.Net" version="3.2.2" />
+      <dependency id="OpenCV.Net" version="3.3.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Release\aruco124.dll" target="build\native\bin\Win32\v110"/>
+    <file src="..\Externals\aruco\Win32\Release\aruco124.dll" target="build\native\bin\Win32\v110"/>
     <file src="..\Release\Aruco.Net.dll" target="build\net45\bin\x86\v110"/>
     <file src="..\Release\Aruco.Net.xml" target="build\net45\bin\x86\v110"/>
-    <file src="..\x64\Release\aruco124.dll" target="build\native\bin\x64\v110"/>
+    <file src="..\Externals\aruco\x64\Release\aruco124.dll" target="build\native\bin\x64\v110"/>
     <file src="..\x64\Release\Aruco.Net.dll" target="build\net45\bin\x64\v110"/>
     <file src="..\x64\Release\Aruco.Net.xml" target="build\net45\bin\x64\v110"/>
     <file src="NuGet\build\net45\Aruco.Net.props" target="build\net45"/>

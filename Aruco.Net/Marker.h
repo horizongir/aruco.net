@@ -18,6 +18,8 @@ namespace Aruco
 			aruco::Marker *marker;
 
 		internal:
+			static Marker();
+			Marker(aruco::Marker *marker);
 			Marker(const aruco::Marker &marker);
 			virtual System::Collections::IEnumerator ^ GetEnumeratorNonGeneric() = System::Collections::IEnumerable::GetEnumerator
 			{
@@ -129,6 +131,11 @@ namespace Aruco
 			/// The modelview matrix for the marker given the extrinsic camera parameters.
 			/// </returns>
 			cli::array<double> ^ GetGLModelViewMatrix();
+
+			/// <summary>
+			/// Represents a marker with no corner data.
+			/// </summary>
+			initonly static Marker ^ Empty;
 
 		private:
 			ref class CornerEnumerator : public IEnumerator<OpenCV::Net::Point2f>
