@@ -9,7 +9,7 @@ detector(new aruco::BoardDetector())
 {
 }
 
-Aruco::Net::BoardDetector::~BoardDetector()
+Aruco::Net::BoardDetector::!BoardDetector()
 {
 	delete detector;
 }

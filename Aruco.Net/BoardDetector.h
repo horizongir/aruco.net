@@ -21,16 +21,13 @@ namespace Aruco
 		{
 		private:
 			aruco::BoardDetector *detector;
+			~BoardDetector() { this->!BoardDetector(); }
+			!BoardDetector();
 		public:
 			/// <summary>
 			/// Initializes a new instance of the <see cref="BoardDetector"/> class.
 			/// </summary>
 			BoardDetector();
-
-			/// <summary>
-			/// Releases unmanaged resources associated with the marker board detector.
-			/// </summary>
-			~BoardDetector();
 
 			/// <summary>
 			/// Detects fiducial markers in the specified image.

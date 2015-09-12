@@ -12,7 +12,7 @@ erosionEnabled(true)
 {
 }
 
-Aruco::Net::MarkerDetector::~MarkerDetector()
+Aruco::Net::MarkerDetector::!MarkerDetector()
 {
 	delete detector;
 }

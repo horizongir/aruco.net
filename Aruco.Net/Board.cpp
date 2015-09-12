@@ -15,7 +15,7 @@ likelihood(likelihood)
 	}
 }
 
-Aruco::Net::Board::~Board()
+Aruco::Net::Board::!Board()
 {
 	delete board;
 }

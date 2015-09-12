@@ -18,16 +18,14 @@ namespace Aruco
 		private:
 			List<Marker ^> ^markers;
 			float likelihood;
+			~Board() { this->!Board(); }
+			!Board();
+
 		internal:
 			aruco::Board *board;
 			Board(const aruco::Board &board, float likelihood);
 
 		public:
-			/// <summary>
-			/// Releases unmanaged resources associated with the marker board.
-			/// </summary>
-			~Board();
-
 			/// <summary>
 			/// Gets the likelihood of having found the marker board.
 			/// </summary>

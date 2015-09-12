@@ -14,6 +14,9 @@ namespace Aruco
 		/// </summary>
 		public ref class MarkerInfo : public IList<OpenCV::Net::Point3f>
 		{
+		private:
+			~MarkerInfo() { this->!MarkerInfo(); }
+			!MarkerInfo();
 		internal:
 			aruco::MarkerInfo *markerInfo;
 			MarkerInfo(const aruco::MarkerInfo& markerInfo);
@@ -31,11 +34,6 @@ namespace Aruco
 			/// Initializes a new instance of the <see cref="MarkerInfo"/> class.
 			/// </summary>
 			MarkerInfo();
-
-			/// <summary>
-			/// Releases unmanaged resources associated with the marker.
-			/// </summary>
-			~MarkerInfo();
 
 			/// <summary>
 			/// Gets or sets the id of the marker.

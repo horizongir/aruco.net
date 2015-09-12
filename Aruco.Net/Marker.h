@@ -14,6 +14,9 @@ namespace Aruco
 		/// </summary>
 		public ref class Marker : public IReadOnlyList<OpenCV::Net::Point2f>
 		{
+		private:
+			~Marker() { this->!Marker(); }
+			!Marker();
 		internal:
 			aruco::Marker *marker;
 
@@ -27,11 +30,6 @@ namespace Aruco
 			}
 
 		public:
-			/// <summary>
-			/// Releases unmanaged resources associated with the marker.
-			/// </summary>
-			~Marker();
-
 			/// <summary>
 			/// Gets the corner at the specified index.
 			/// </summary>
