@@ -89,14 +89,14 @@ namespace Aruco
 			/// Gets the perimeter of the marker.
 			/// </summary>
 			property float Perimeter {
-				float get() { return marker->getPerimeter(); }
+				float get() { return marker->isValid() ? marker->getPerimeter() : 0; }
 			}
 
 			/// <summary>
 			/// Gets the area of the marker.
 			/// </summary>
 			property float Area {
-				float get() { return marker->getArea(); }
+				float get() { return marker->isValid() ? marker->getArea() : 0; }
 			}
 
 			/// <summary>
