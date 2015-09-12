@@ -68,16 +68,13 @@ namespace Aruco
 		private:
 			aruco::MarkerDetector *detector;
 			bool erosionEnabled;
+			~MarkerDetector() { this->!MarkerDetector(); }
+			!MarkerDetector();
 		public:
 			/// <summary>
 			/// Initializes a new instance of the <see cref="MarkerDetector"/> class.
 			/// </summary>
 			MarkerDetector();
-
-			/// <summary>
-			/// Releases unmanaged resources associated with the marker detector.
-			/// </summary>
-			~MarkerDetector();
 
 			/// <summary>
 			/// Gets or sets the threshold method.

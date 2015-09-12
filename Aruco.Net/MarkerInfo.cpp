@@ -13,7 +13,7 @@ Aruco::Net::MarkerInfo::MarkerInfo(const aruco::MarkerInfo& markerInfo):
 {
 }
 
-Aruco::Net::MarkerInfo::~MarkerInfo()
+Aruco::Net::MarkerInfo::!MarkerInfo()
 {
 	delete markerInfo;
 }

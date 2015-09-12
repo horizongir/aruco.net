@@ -16,7 +16,7 @@ marker(new aruco::Marker(marker))
 {
 }
 
-Aruco::Net::Marker::~Marker()
+Aruco::Net::Marker::!Marker()
 {
 	delete marker;
 }
