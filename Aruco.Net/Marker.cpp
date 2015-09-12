@@ -43,3 +43,8 @@ cli::array<double> ^ Aruco::Net::Marker::GetGLModelViewMatrix()
 	}
 	return result;
 }
+
+String ^ Aruco::Net::Marker::ToString()
+{
+	return String::Format("{{Id = {0}, Center = {1}}}", Id, Center);
+}

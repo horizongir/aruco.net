@@ -136,6 +136,14 @@ namespace Aruco
 			/// </returns>
 			cli::array<double> ^ GetGLModelViewMatrix();
 
+			/// <summary>
+			/// Returns the string representation of the marker instance.
+			/// </summary>
+			/// <returns>
+			/// The string representation of the marker instance.
+			/// </returns>
+			virtual String ^ ToString() override;
+
 		private:
 			ref class CornerEnumerator : public IEnumerator<OpenCV::Net::Point2f>
 			{
