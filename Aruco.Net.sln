@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3D624
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Net", "Externals\OpenCV.Net\OpenCV.Net\OpenCV.Net.csproj", "{DAF4D704-2C86-4657-9210-DB5B847BA8BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Net", "OpenCV.Net\src\OpenCV.Net\OpenCV.Net.csproj", "{DAF4D704-2C86-4657-9210-DB5B847BA8BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

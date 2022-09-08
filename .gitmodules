@@ -1,0 +1,3 @@
+[submodule "OpenCV.Net"]
+	path = OpenCV.Net
+	url = https://github.com/horizongir/opencv.net.git
