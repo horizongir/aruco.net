@@ -11,7 +11,7 @@ using namespace System::Security::Permissions;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly:AssemblyTitleAttribute("Aruco.NET")];
+[assembly:AssemblyTitleAttribute("ArUco.NET")];
 [assembly:AssemblyDescriptionAttribute("A managed wrapper to the ArUco open-source augmented reality library.")];
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("Gonçalo Lopes")];
